@@ -1,9 +1,13 @@
-exports.getUser = (req, res) => {
+const User = require("../models/userModel");
+
+exports.getUser = async (req, res) => {
   res.status(200).send({
-    name: "Ganesh Adhikari",
-    address: "Dharan",
-    phoneNumber: "9863252121",
+    data: await User.find(),
   });
 };
 
-exports.createUser = () => {};
+exports.createUser = (req, res) => {
+  const user = new User(req.body);
+  user.save();
+  res.status(200).send({ data: user });
+};
