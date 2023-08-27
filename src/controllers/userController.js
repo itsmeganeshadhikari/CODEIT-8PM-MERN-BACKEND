@@ -9,7 +9,6 @@ const {
 exports.getUser = async (req, res) => {
   const user = await getUser();
   res.status(200).send({ data: user });
-  ``;
 };
 
 exports.createUser = async (req, res) => {

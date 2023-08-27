@@ -22,6 +22,12 @@ const userSchema = new mongoose.Schema({
     min: [6, "Must be minimun six characters long"],
     max: [20, "Must not be more than twenty characters"],
   },
+  product: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+    },
+  ],
 });
 const User = mongoose.model("User", userSchema);
 

@@ -3,6 +3,7 @@ const userRoute = require("./routes/userRoutes");
 const dotenv = require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
+const productRoute = require("./routes/productRoute");
 const db = process.env.DB;
 
 const app = express();
@@ -23,5 +24,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", userRoute);
+app.use("/api", productRoute);
 
 module.exports = app;

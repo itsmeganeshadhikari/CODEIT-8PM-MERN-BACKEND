@@ -1,7 +1,7 @@
 const User = require("../models/userModel");
 
 exports.getUser = async () => {
-  const user = await User.find();
+  const user = await User.find().populate("product");
   if (!user) {
     return "No user found!";
   }
